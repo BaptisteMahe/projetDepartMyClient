@@ -4,7 +4,6 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyClient.Dto;
 using MyClient.MVC.Services;
@@ -25,28 +24,37 @@ namespace MyClient.MVC.Controllers
 
 
         [HttpGet("{id}")]
-        public Client GetClient(int id)
+        public IActionResult GetClient(int id)
         {
             var userId = id;
             var user = service.GetClient(userId);
-            return user;
+            if(user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
         }
 
         [HttpGet]
-        public List<Client> GetClients()
+        public IActionResult GetClients()
         {
-            return service.getClients();
+            List<Client> allClients = service.getClients();
+            if(allClients.Count > 0)
+            {
+                return Ok(allClients);
+            }
+            return Ok("No Clients on database");
         }
 
 
         [HttpPost]
-        public Client AddOrUpdateClient(int id,Client c)
+        public IActionResult AddOrUpdateClient(int id,Client c)
         {
             if(service.GetClient(c.Id) != null)
             {
-                return service.UpdateClient(c);
+                return Ok(service.UpdateClient(c));
             }
-            return service.AddClient(c);
+            return Ok(service.AddClient(c));
         }
 
 
