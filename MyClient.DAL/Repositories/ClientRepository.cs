@@ -20,6 +20,18 @@ namespace MyCLient.DAL.Repositories
         public ClientRepository(MyClientsContext db) {
             this.db = db;
         }
+
+        public List<Client> getClients()
+        {
+            List<DAL.Models.Client> listeClientsDAL = db.Clients.ToList();
+            List<Client> listeDto = new List<Client>();
+            foreach(DAL.Models.Client cDal in listeClientsDAL)
+            {
+                listeDto.Add(ToDto(cDal));
+            }
+            return listeDto;
+
+        }
         public void createClient(Client cl)
         {
             Models.Client clientToAdd = new Models.Client

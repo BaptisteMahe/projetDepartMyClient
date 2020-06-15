@@ -32,6 +32,12 @@ namespace MyClient.MVC.Controllers
             return user;
         }
 
+        [HttpGet]
+        public List<Client> GetClients()
+        {
+            return service.getClients();
+        }
+
 
         [HttpPost]
         public Client AddOrUpdateClient(int id,Client c)

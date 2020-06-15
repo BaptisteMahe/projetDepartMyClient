@@ -7,6 +7,8 @@ namespace MyClient.MVC.Services.Interfaces
 {
     public interface IClientService
     {
+
+        List<Client> getClients();
         Client GetClient(int id);
 
         Client AddClient(Client c);

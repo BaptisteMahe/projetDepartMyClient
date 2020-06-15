@@ -8,10 +8,13 @@ namespace MyCLient.DAL.Interfaces
 {
     public interface IClientRepository
     {
+
         Client getById(int clientId);
         Task<Client> getByIdAsync(int clientId);
         void createClient(Client cl);
         void updateClient(Client cl);
+
+        List<Client> getClients();
 
     }
 }

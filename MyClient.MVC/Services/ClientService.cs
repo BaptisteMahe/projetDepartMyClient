@@ -38,5 +38,10 @@ namespace MyClient.MVC.Services
 
             return unitOfWork.ClientRepository.getById(c.Id);
         }
+
+        public List<Client> getClients()
+        {
+            return unitOfWork.ClientRepository.getClients();
+        }
     }
 }
