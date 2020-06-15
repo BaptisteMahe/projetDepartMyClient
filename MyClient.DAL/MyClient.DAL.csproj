@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyClient.dteau\MyClient.Dto.csproj" />
+    <ProjectReference Include="..\MyClient.Dto\MyClient.Dto.csproj" />
   </ItemGroup>
 
 </Project>

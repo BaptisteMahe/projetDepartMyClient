@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyClient.DEL\MyClient.DAL.csproj" />
-    <ProjectReference Include="..\MyClient.dteau\MyClient.Dto.csproj" />
+    <ProjectReference Include="..\MyClient.DAL\MyClient.DAL.csproj" />
+    <ProjectReference Include="..\MyClient.Dto\MyClient.Dto.csproj" />
   </ItemGroup>
 
 
